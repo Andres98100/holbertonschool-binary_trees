@@ -8,7 +8,7 @@
 int main(void)
 {
     binary_tree_t *root;
-    binary_tree_t *sibling;
+    binary_tree_t *uncle;
 
     root = binary_tree_node(NULL, 98);
     root->left = binary_tree_node(root, 12);
@@ -21,13 +21,11 @@ int main(void)
     root->right->right->right = binary_tree_node(root->right->right, 512);
 
     binary_tree_print(root);
-    sibling = binary_tree_sibling(root->left);
-    printf("Sibling of %d: %d\n", root->left->n, sibling->n);
-    sibling = binary_tree_sibling(root->right->left);
-    printf("Sibling of %d: %d\n", root->right->left->n, sibling->n);
-    sibling = binary_tree_sibling(root->left->right);
-    printf("Sibling of %d: %d\n", root->left->right->n, sibling->n);
-    sibling = binary_tree_sibling(root);
-    printf("Sibling of %d: %p\n", root->n, (void *)sibling);
+    uncle = binary_tree_uncle(root->right->left);
+    printf("Uncle of %d: %d\n", root->right->left->n, uncle->n);
+    uncle = binary_tree_uncle(root->left->right);
+    printf("Uncle of %d: %d\n", root->left->right->n, uncle->n);
+    uncle = binary_tree_uncle(root->left);
+    printf("Uncle of %d: %p\n", root->left->n, (void *)uncle);
     return (0);
 }
