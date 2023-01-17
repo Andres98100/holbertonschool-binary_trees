@@ -7,13 +7,21 @@
  */
 int main(void)
 {
-	binary_tree_t *root;
-	size_t height;
+    binary_tree_t *root;
+    size_t depth;
 
-	root = NULL;
+    root = binary_tree_node(NULL, 98);
+    root->left = binary_tree_node(root, 12);
+    root->right = binary_tree_node(root, 402);
+    binary_tree_insert_right(root->left, 54);
+    binary_tree_insert_right(root, 128);
+    binary_tree_print(root);
 
-	height = binary_tree_height(root);
-	printf("Height of tree with root node (%p): %lu\n", (void *)root, height);
-
-	return (0);
+    depth = binary_tree_depth(root);
+    printf("Depth of %d: %lu\n", root->n, depth);
+    depth = binary_tree_depth(root->right);
+    printf("Depth of %d: %lu\n", root->right->n, depth);
+    depth = binary_tree_depth(root->left->right);
+    printf("Depth of %d: %lu\n", root->left->right->n, depth);
+    return (0);
 }
