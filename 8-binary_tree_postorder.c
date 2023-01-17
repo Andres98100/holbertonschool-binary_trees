@@ -8,11 +8,10 @@
 
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
-	if (tree)
+	if (tree && func)
 	{
 		binary_tree_postorder(tree->left, func);
 		binary_tree_postorder(tree->right, func);
-		printf("%i", tree->n);
-		printf("\n");
+		func(tree->n)
 	}
 }
