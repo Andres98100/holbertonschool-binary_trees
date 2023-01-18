@@ -12,9 +12,6 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 
 	if (!node || !node->parent || !node->parent->parent)
 		return (NULL);
-	grandpa = malloc(sizeof(*node));
-	if (!grandpa)
-		return (NULL);
 	grandpa = node->parent->parent;
 	if (grandpa->left && grandpa->left != node->parent)
 		return (grandpa->left);
