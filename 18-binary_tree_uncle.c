@@ -9,7 +9,6 @@
 binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
 	binary_tree_t *grandpa;
-	int i = 0;
 
 	if (!node || !node->parent || !node->parent->parent)
 		return (NULL);
